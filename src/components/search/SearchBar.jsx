@@ -33,7 +33,7 @@ const SearchBar = ({ onSearch, isLoading, searchQuery = "", searchRequestId = 0 
           aria-label="Search recipes"
           aria-invalid={Boolean(validationMessage)}
           aria-describedby={validationMessage ? "search-validation" : undefined}
-          className="min-w-0 flex-1 rounded-xl bg-transparent px-4 py-3 text-sm text-ink-input outline-none placeholder:text-muted-input sm:px-5"
+          className="min-w-0 flex-1 rounded-xl bg-transparent px-3 py-3 text-sm text-ink-input outline-none placeholder:text-muted-input sm:px-5 mr-2"
           ref={inputRef}
           type="search"
           placeholder="Try “creamy pasta” or “chicken”"
@@ -44,7 +44,7 @@ const SearchBar = ({ onSearch, isLoading, searchQuery = "", searchRequestId = 0 
           }}
         />
         <button
-          className="shrink-0 rounded-xl bg-accent px-5 py-3 text-sm font-bold text-brand transition hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand sm:px-7"
+          className="shrink-0 rounded-xl bg-accent px-3 py-3 text-sm font-bold text-brand transition hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand sm:px-7"
           type="submit"
         >
           {isLoading ? "Searching..." : "Find recipes"}
