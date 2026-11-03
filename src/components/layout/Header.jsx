@@ -8,7 +8,14 @@ const SECTIONS = [
 ];
 
 const Header = () => {
-  const { activeSection, navigateToSection, theme, toggleTheme, bookmarks, items } = useLibraryContext();
+  const {
+    activeSection,
+    navigateToSection,
+    theme,
+    toggleTheme,
+    bookmarks,
+    items,
+  } = useLibraryContext();
   const isDarkMode = theme === "dark";
   const counts = { bookmarks: bookmarks.length, shopping: items.length };
 
@@ -19,12 +26,17 @@ const Header = () => {
         onClick={() => navigateToSection("home")}
         type="button"
       >
-        <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-soft text-lg" aria-hidden="true">✳</span>
+        <span
+          className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-soft text-lg"
+          aria-hidden="true"
+        >
+          ✳
+        </span>
         MealMate
       </button>
 
       <nav
-        className="order-3 -mx-1 flex w-full min-w-0 max-w-full flex-none gap-1 overflow-x-auto rounded-full border border-border bg-surface/80 p-1 shadow-sm dark:bg-surface sm:order-none sm:mx-0 sm:w-auto"
+        className="order-3 -mx-1 flex w-full min-w-0 max-w-full flex-none gap-1 overflow-x-auto rounded-full border border-border bg-surface/80 p-1 shadow-sm dark:bg-surface sm:order-0 sm:mx-0 sm:w-auto"
         aria-label="Main navigation"
       >
         {SECTIONS.map((section) => (
@@ -58,7 +70,9 @@ const Header = () => {
         >
           <span aria-hidden="true">{isDarkMode ? "☀" : "☾"}</span>
         </button>
-        <span className="hidden text-sm font-medium text-muted lg:block">Made for the love of food</span>
+        <span className="hidden text-sm font-medium text-muted lg:block">
+          Made for the love of food
+        </span>
       </div>
     </header>
   );

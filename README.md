@@ -1,48 +1,75 @@
 # MealMate
 
-MealMate is a React and Vite recipe browser powered by [TheMealDB](https://www.themealdb.com/). Browse featured recipes, search by name or ingredient, save favorites, and organize recipes and ingredients.
+MealMate is a responsive recipe browser built with React and Vite. Discover recipes from [TheMealDB](https://www.themealdb.com/), keep track of favorites, and turn recipe ingredients into a practical shopping list.
 
-## Run locally
+## What you can do
+
+- Discover featured recipes and browse by category.
+- Search for recipes by name or ingredient.
+- Open recipe details, including ingredients and cooking instructions.
+- Rate recipes and save personal notes.
+- Bookmark recipes and revisit recently viewed meals.
+- Add ingredients to a shopping list, track purchased items, undo individual removals, and copy the list.
+- Ask the built-in recipe assistant to search, suggest ideas from current results, or answer questions about an open recipe.
+- Choose a light or dark theme; your theme and personal recipe data persist in your browser.
+
+## Get started
+
+You’ll need Node.js and npm installed.
 
 ```sh
+git clone https://github.com/ashvaniix/MealMate.git
+cd MealMate
 npm install
 npm run dev
 ```
 
-Build, lint, and test with:
+Open the local URL printed by Vite in your terminal.
 
-```sh
-npm run build
-npm run lint
-npm test
+## Configuration
+
+MealMate uses TheMealDB API. By default, it uses the public development key `1`, so no configuration is needed to get started.
+
+To use another API key, copy `.env.example` to `.env.local` and set the key:
+
+```env
+VITE_MEALDB_KEY=your_api_key
 ```
 
-## TheMealDB configuration
+Restart the Vite development server after changing environment variables. Do not commit `.env.local`.
 
-The app uses TheMealDB's public development key (`1`) by default. To use a different key, copy `.env.example` to `.env.local` and set `VITE_MEALDB_KEY`. Restart the Vite server after changing environment variables.
+## Development commands
 
-## Features
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the Vite development server |
+| `npm run build` | Create a production build in `dist/` |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint` | Run Oxlint |
+| `npm test` | Run the Vitest test suite |
+| `npm run package:source` | Create `MealMate-source.zip` |
 
-- Featured real recipes loaded from TheMealDB
-- Name search with ingredient-match fallback
-- Recipe details, ratings, personal notes, bookmarks, and recently viewed recipes
-- Shopping list with purchased-item tracking and undo for individual removals
-- Search history and a rule-based recipe assistant
-- Light/dark theme, keyboard-accessible dialogs, and responsive layouts
-- Local browser storage for personal data; no account or backend is required
+The source archive excludes `node_modules`, `dist`, `.git`, `.env.local`, and the archive itself.
+
+## Data and privacy
+
+Recipe searches and details are retrieved from TheMealDB. Bookmarks, ratings, notes, shopping list items, search history, and theme preference are stored in the browser’s `localStorage`; MealMate does not require an account or app backend. Clearing this site’s browser data removes the locally saved information.
 
 ## Project structure
 
-- `src/app/` composes the providers, active page, and error boundary
-- `src/components/` contains UI components grouped by feature
-- `src/hooks/` contains application state, persistence, and request logic
-- `src/data/` contains TheMealDB requests and pure recipe/search helpers
-- `LibraryContext` exposes bookmarks, shopping, ratings, notes, theme, and navigation
-- `SearchContext` exposes current results, search actions, and search history
-- `RecipeViewContext` exposes the active recipe modal and recently viewed recipes
+```text
+src/
+  app/          Application shell, providers, and error boundary
+  components/   UI grouped by feature (search, recipes, shopping, and more)
+  context/      Shared application contexts
+  data/         TheMealDB client and recipe/search helpers
+  hooks/        State, browser storage, and application behavior
+```
 
-Personal data is saved in the browser's `localStorage`; clearing browser site data removes it.
+## Tech stack
 
-## Share a source archive
-
-Run `npm run package:source` to create `MealMate-source.zip`. The packaging script explicitly excludes `node_modules`, `dist`, `.git`, `.env.local`, and the archive itself.
+- React 19
+- Vite
+- Tailwind CSS 4
+- Vitest and Testing Library
+- TheMealDB API

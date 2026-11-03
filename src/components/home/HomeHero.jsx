@@ -10,7 +10,7 @@ const HomeHero = () => {
     searchHistory, searchQuery, searchRequestId,
   } = useSearchContext();
   return (
-    <section className="relative isolate overflow-hidden rounded-[2rem] bg-brand px-7 py-12 text-white shadow-[0_24px_70px_-35px_rgba(24,59,45,0.65)] sm:px-12 sm:py-16 lg:px-16">
+    <section className="relative isolate overflow-hidden rounded-4xl bg-brand px-7 py-12 text-white shadow-[0_24px_70px_-35px_rgba(24,59,45,0.65)] sm:px-12 sm:py-16 lg:px-16">
       <div className="absolute -right-24 -top-32 -z-10 h-96 w-96 rounded-full bg-accent/15 blur-3xl" />
       <div className="absolute -bottom-32 right-1/4 -z-10 h-72 w-72 rounded-full bg-warm-accent/15 blur-3xl" />
 
